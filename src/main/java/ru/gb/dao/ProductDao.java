@@ -1,13 +1,11 @@
 package ru.gb.dao;
 
-import ru.gb.entity.Manufacturer;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import ru.gb.entity.Product;
 
-import java.util.Collection;
+import java.util.List;
 
-public interface ProductDao {
-    Iterable<Product> findAll();
-    Product findById();
-    Product save(Product product);
-    void deleteAll(Collection<Product> products);
+public interface ProductDao extends PagingAndSortingRepository<Product, Long> {
+    List<Product> findAllBy (Sort sort);
 }
